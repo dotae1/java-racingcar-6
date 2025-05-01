@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static racingcar.NameValidater.validateName;
 
-
+//차가 해야하는 역할 : 전진(조건 만족 시), 이름 검증, -(결과 확인), 거리확인, 이름(우승자 출력용)
 public class Car {
 
     private String name;

@@ -3,7 +3,9 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
+
+
 
 public class User {
 
@@ -15,16 +17,19 @@ public class User {
         Scanner scanner = new Scanner(System.in);
 
 
+        // 쉼표를 (,) 기준으로 이름 나눠서 name이라는 배열에 저장
         System.out.print("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분) : ");
         String[] name = scanner.nextLine().split(",");
         System.out.print("시도할 횟수 : ");
         int count = scanner.nextInt();
 
+        // String형으로, name배열에서 하나씩 꺼내 List에 저장
         List<Car> cars = new ArrayList<>();
         for(String names : name) {
             cars.add(new Car(names));
         }
 
+        //입력한 횟수만큼 play진행
         for(int i=0; i<count; i++) {
             Play(cars);
             System.out.println();
@@ -45,16 +50,16 @@ public class User {
                 maxDistance = car.getDistance();
             }
         }
-        List<String> winners = null;
+        List<String> winners = new ArrayList<>();
 
         for(Car car : cars) {
             if(car.getDistance() == maxDistance) {
-                winners = new ArrayList<>();
                 winners.add(car.getName());
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+
+        System.out.println("최종 우승자 : " +String.join(", ", winners));
     }
 
 }
