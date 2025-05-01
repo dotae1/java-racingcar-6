@@ -29,26 +29,31 @@ public class User {
             Play(cars);
             System.out.println();
         }
-        printWinners(cars);
+        Winners(cars);
     }
     public void Play(List<Car> cars) {
         for(Car car : cars) {
             car.move();
         }
     }
-    public static void printWinners(List<Car> cars) {
+    public static void Winners(List<Car> cars) {
 
-        int maxDistance = cars.stream()
-                .mapToInt(Car::getDistance)
-                .max()
-                .orElse(0);
+        int maxDistance = 0;
 
-        List<String> winners = cars.stream()
-                .filter(car -> car.getDistance() == maxDistance)
-                .map(Car::getName)
-                .collect(Collectors.toList());
+        for(Car car : cars) {
+            if(maxDistance < car.getDistance()) {
+                maxDistance = car.getDistance();
+            }
+        }
+        List<String> winners = null;
 
-        // 3. 출력
+        for(Car car : cars) {
+            if(car.getDistance() == maxDistance) {
+                winners = new ArrayList<>();
+                winners.add(car.getName());
+            }
+        }
+
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
