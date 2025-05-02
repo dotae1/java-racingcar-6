@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Random;
 
 import static racingcar.NameValidater.validateName;
@@ -11,14 +13,12 @@ public class Car {
     private  int distance;
 
     Car(String name) {
-
         validateName(name);
         this.name = name;
     }
 
     public int validMove() {
-        Random random = new Random();
-        return random.nextInt(10);
+        return Randoms.pickNumberInRange(0,9);
     }
 
     public void move() {
@@ -26,7 +26,6 @@ public class Car {
             distance ++;
         }
         System.out.println(getName() + " : " + getResult());
-
     }
 
     public String getResult() {
