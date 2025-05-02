@@ -2,8 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import java.io.*;
 import camp.nextstep.edu.missionutils.Console;
 
 public class User {
