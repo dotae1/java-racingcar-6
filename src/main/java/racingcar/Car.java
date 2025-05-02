@@ -7,7 +7,7 @@ import static racingcar.NameValidater.validateName;
 public class Car {
 
     private final String name;
-    private  int distance;
+    private int distance;
 
     Car(String name) {
         validateName(name);
